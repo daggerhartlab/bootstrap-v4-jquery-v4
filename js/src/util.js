@@ -189,7 +189,6 @@ const Util = {
   }
 }
 
-Util.jQueryDetection()
 setTransitionEndSupport()
 
 export default Util
