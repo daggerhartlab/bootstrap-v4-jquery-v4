@@ -1,6 +1,6 @@
 /**
  * Determines if its argument is callable as a function.
- * As of jQuery 3.3, jQuery.isFunction() has been deprecated. In most cases, its use can be replaced by typeof x === "function".
+ * As of jQuery 3.3, jQuery.isFunction() has been deprecated. In most cases, its use can be replaced with `typeof x === "function"`.
  * More information: https://api.jquery.com/jQuery.isFunction/ */
 
 import $ from 'jquery'
@@ -11,7 +11,7 @@ const class2type = {}
 
 const { toString } = class2type
 
-// Populate the class2type map.
+// Populate the `class2type` map.
 $.each(
   'Boolean Number String Function Array Date RegExp Object Error Symbol'.split(
     ' '
@@ -25,7 +25,7 @@ $.fx.interval = 13
 
 /**
  * Takes a well-formed JSON string and returns the resulting JavaScript value.
- * As of jQuery 3.0, $.parseJSON is deprecated. To parse JSON strings use the native JSON.parse method instead.
+ * As of jQuery 3.0, $.parseJSON is deprecated. To parse JSON, strings use the native JSON.parse method instead.
  */
 
 const rvalidtokens =
@@ -76,7 +76,7 @@ $.trim = text => {
  * This API has been deprecated in jQuery 3.2; please use the native Array.isArray method instead.
  * MOre information: https://api.jquery.com/jQuery.isArray/ */
 $.isArray = obj => {
-  return jQuery.type(obj) === 'array'
+  return $.type(obj) === 'array'
 }
 
 /* The $.camelCase() function in jQuery converts a hyphenated string to
@@ -104,14 +104,14 @@ $.isWindow = obj => {
   return obj !== null && obj === obj.window
 }
 
-/* This function was to check nodes names, but it
+/* This function was to check node names, but it
  * was documented: https://github.com/jquery/jquery/issues/3475 */
 $.nodeName = (elem, name) => {
   return elem.nodeName && elem.nodeName.toLowerCase() === name.toLowerCase()
 }
 
 /* The $.isNumeric() method checks whether its argument represents a numeric
- * value. If so, it returns true. Otherwise it returns false.
+ * value. If so, it returns true. Otherwise, it returns false.
  * The argument can be of any type. */
 $.isNumeric = obj => {
   return !Number.isNaN(parseFloat(obj)) && Number.isFinite(obj)
@@ -133,14 +133,12 @@ $.parseJSON = function (data) {
 
   let requireNonComma
   let depth = null
-  /* eslint-disable-next-line no-jquery/no-trim */
   const str = $.trim(`${data}`)
 
   // Guard against invalid (and possibly dangerous) input by ensuring that nothing remains
   // after removing valid tokens
 
   return str &&
-  /* eslint-disable-next-line no-jquery/no-trim */
   !$.trim(
     str.replace(rvalidtokens, (token, comma, open, close) => {
       // Force termination if we see a misplaced comma

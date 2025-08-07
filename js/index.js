@@ -4,7 +4,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
-import './src/jquery.deprecated_functions'
+import './src/jquery-deprecated-functions'
 export { default as Alert } from './src/alert'
 export { default as Button } from './src/button'
 export { default as Carousel } from './src/carousel'
