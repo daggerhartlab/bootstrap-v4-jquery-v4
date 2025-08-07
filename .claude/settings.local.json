@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(lando npm run:*)",
+      "Bash(lando npm test:*)"
+    ],
+    "deny": []
+  }
+}
