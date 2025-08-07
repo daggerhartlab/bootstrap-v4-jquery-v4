@@ -24,7 +24,12 @@
 
   $__default["default"].each('Boolean Number String Function Array Date RegExp Object Error Symbol'.split(' '), function (i, name) {
     class2type["[object " + name + "]"] = name.toLowerCase();
-  });
+  }); // Initialize $.fx if it doesn't exist
+
+  if (!$__default["default"].fx) {
+    $__default["default"].fx = {};
+  }
+
   $__default["default"].fx.interval = 13;
   /**
    * Takes a well-formed JSON string and returns the resulting JavaScript value.

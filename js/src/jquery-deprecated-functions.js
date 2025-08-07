@@ -21,6 +21,11 @@ $.each(
   }
 )
 
+// Initialize $.fx if it doesn't exist
+if (!$.fx) {
+  $.fx = {}
+}
+
 $.fx.interval = 13
 
 /**
