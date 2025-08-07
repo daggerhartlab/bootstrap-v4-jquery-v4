@@ -152,3 +152,54 @@ import './src/jquery-deprecated-functions'
 - All deprecated jQuery methods work when Bootstrap is loaded
 - No breaking changes to existing Bootstrap functionality
 - All tests pass
+
+## Security Assessment & Recommendations
+
+### Known Vulnerabilities
+
+#### Bootstrap 4.6.2 Vulnerabilities
+- **CVE-2024-6531** (Medium Severity - CVSS 6.4)
+  - **Component**: Carousel
+  - **Issue**: Cross-Site Scripting (XSS) through `data-slide` and `data-slide-to` attributes
+  - **Impact**: Affects Bootstrap 4.0.0 through 4.6.2
+  - **Status**: **No fix available** - Bootstrap 4 is end-of-life
+  - **Workaround**: Implement input sanitization using libraries like DOMPurify
+
+#### Dependency Vulnerabilities
+- **53 total vulnerabilities** identified via `npm audit`:
+  - 3 critical
+  - 33 high-severity
+  - 14 moderate-severity
+  - 3 low-severity
+
+Key vulnerable packages include @babel/traverse, axios, body-parser, braces, cross-spawn, form-data, semver, terser, ws, and others.
+
+### Security Recommendations
+
+#### Immediate Actions
+1. **Address Dependencies**: Run `lando npm audit fix` to resolve fixable vulnerabilities
+2. **Carousel Security**:
+   - Sanitize user input before using in carousel `data-*` attributes
+   - Consider using DOMPurify for XSS prevention
+   - Implement Content Security Policy (CSP) headers
+
+#### Long-term Strategy
+1. **Migration Planning**:
+   - Plan migration to Bootstrap 5 (actively supported with security updates)
+   - Bootstrap 5 removes jQuery dependency, solving compatibility issues
+2. **Commercial Support**: Consider HeroDevs Never-Ending Support for Bootstrap 4 if migration isn't feasible
+3. **Security Monitoring**:
+   - Regular dependency auditing with `npm audit`
+   - Monitor GitHub Security Advisories: `github.com/twbs/bootstrap/security/advisories`
+   - CVE monitoring for Bootstrap-related issues
+
+#### Security Resources
+- **Report Issues**: security@getbootstrap.com (include "SECURITY" in subject)
+- **CVE Database**: cve.mitre.org
+- **Bootstrap Security**: github.com/twbs/bootstrap/security
+
+### Next Steps
+1. Resolve critical dependency vulnerabilities immediately
+2. Implement XSS prevention for carousel components
+3. Create migration timeline to Bootstrap 5
+4. Establish regular security monitoring process
