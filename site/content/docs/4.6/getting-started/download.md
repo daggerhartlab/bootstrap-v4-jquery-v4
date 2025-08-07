@@ -96,7 +96,7 @@ Alternatively, if you're not using Bundler, you can install the gem by running t
 gem install bootstrap -v {{< param current_ruby_version >}}
 ```
 
-[See the gem's README](https://github.com/twbs/bootstrap-rubygem/blob/master/README.md) for further details.
+[See the gem's README](https://github.com/daggerhartlab/bootstrap-v4-jquery-v4-rubygem/blob/master/README.md) for further details.
 
 ### Composer
 
