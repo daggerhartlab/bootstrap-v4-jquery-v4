@@ -16,25 +16,23 @@
 
   /**
    * Determines if its argument is callable as a function.
-   * As of jQuery 3.3, jQuery.isFunction() has been deprecated. In most cases, its use can be replaced by typeof x === "function".
+   * As of jQuery 3.3, jQuery.isFunction() has been deprecated. In most cases, its use can be replaced with `typeof x === "function"`.
    * More information: https://api.jquery.com/jQuery.isFunction/ */
   /** CONSTANTS AND VARIABLES * */
 
   var class2type = {};
-  var toString = class2type.toString; // Populate the class2type map.
+  var toString = class2type.toString; // Populate the `class2type` map.
 
-  jQuery.each('Boolean Number String Function Array Date RegExp Object Error Symbol'.split(' '), function (i, name) {
+  $__default["default"].each('Boolean Number String Function Array Date RegExp Object Error Symbol'.split(' '), function (i, name) {
     class2type["[object " + name + "]"] = name.toLowerCase();
   });
-  jQuery.fx.interval = 13;
+  $__default["default"].fx.interval = 13;
   /**
    * Takes a well-formed JSON string and returns the resulting JavaScript value.
-   * As of jQuery 3.0, $.parseJSON is deprecated. To parse JSON strings use the native JSON.parse method instead.
+   * As of jQuery 3.0, $.parseJSON is deprecated. To parse JSON, strings use the native JSON.parse method instead.
    */
 
-  /* eslint-disable-next-line no-useless-escape */
-
-  var rvalidtokens = /(,)|(\[|{)|(}|])|"(?:[^"\\\r\n]|\\["\\/bfnrt]|\\u[\da-fA-F]{4})*"\s*:?|true|false|null|-?(?!0\d)\d+(?:\.\d+|)(?:[eE][+-]?\d+|)/g;
+  var rvalidtokens = /(,)|(\[|{)|(}|])|"(?:[^\n\r"\\]|\\["/\\bfnrt]|\\u[\dA-Fa-f]{4})*"\s*:?|true|false|null|-?(?!0\d)\d+(?:\.\d+|)(?:[Ee][+-]?\d+|)/g;
   /** FUNCTIONS * */
 
   $__default["default"].fn.isFunction = function (fn) {
@@ -46,7 +44,7 @@
   };
 
   $__default["default"].type = function (obj) {
-    if (obj == null) {
+    if (obj === null) {
       return "" + obj;
     } // Support: Android <=2.3 only (functionish RegExp)
 
@@ -67,10 +65,10 @@
   // Make sure we trim BOM and NBSP
 
 
-  var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g; // Support: Android<4.1, IE<9
+  var rtrim = /^\s+|\s+$/g; // Support: Android<4.1, IE<9
 
   $__default["default"].trim = function (text) {
-    return text == null ? '' : ("" + text).replace(rtrim, '');
+    return text === null ? '' : ("" + text).replace(rtrim, '');
   };
   /* Determine whether the argument is an array.
    * This API has been deprecated in jQuery 3.2; please use the native Array.isArray method instead.
@@ -78,7 +76,7 @@
 
 
   $__default["default"].isArray = function (obj) {
-    return jQuery.type(obj) === 'array';
+    return $__default["default"].type(obj) === 'array';
   };
   /* The $.camelCase() function in jQuery converts a hyphenated string to
    * camel case. It is used internally by jQuery for manipulating CSS
@@ -104,9 +102,9 @@
 
   $__default["default"].isWindow = function (obj) {
     /* jshint eqeqeq: false */
-    return obj != null && obj === obj.window;
+    return obj !== null && obj === obj.window;
   };
-  /* This function was to check nodes names, but it
+  /* This function was to check node names, but it
    * was documented: https://github.com/jquery/jquery/issues/3475 */
 
 
@@ -114,7 +112,7 @@
     return elem.nodeName && elem.nodeName.toLowerCase() === name.toLowerCase();
   };
   /* The $.isNumeric() method checks whether its argument represents a numeric
-   * value. If so, it returns true. Otherwise it returns false.
+   * value. If so, it returns true. Otherwise, it returns false.
    * The argument can be of any type. */
 
 
@@ -126,11 +124,11 @@
   /* This API has been deprecated in jQuery 3.3; please use the native Date.now() method instead. */
 
 
-  jQuery.now = function () {
-    return new Date().getTime();
+  $__default["default"].now = function () {
+    return Date.now();
   };
 
-  jQuery.parseJSON = function (data) {
+  $__default["default"].parseJSON = function (data) {
     // Attempt to parse using the native JSON parser first
     if (window.JSON && window.JSON.parse) {
       // Support: Android 2.3
@@ -140,14 +138,10 @@
 
     var requireNonComma;
     var depth = null;
-    /* eslint-disable-next-line no-jquery/no-trim */
-
-    var str = jQuery.trim("" + data); // Guard against invalid (and possibly dangerous) input by ensuring that nothing remains
+    var str = $__default["default"].trim("" + data); // Guard against invalid (and possibly dangerous) input by ensuring that nothing remains
     // after removing valid tokens
 
-    return str &&
-    /* eslint-disable-next-line no-jquery/no-trim */
-    !jQuery.trim(str.replace(rvalidtokens, function (token, comma, open, close) {
+    return str && !$__default["default"].trim(str.replace(rvalidtokens, function (token, comma, open, close) {
       // Force termination if we see a misplaced comma
       if (requireNonComma && comma) {
         depth = 0;
@@ -169,12 +163,12 @@
       return '';
     })) ?
     /* eslint-disable-next-line no-new-func */
-    Function("return " + str)() : jQuery.error("Invalid JSON: " + data);
+    new Function("return " + str)() : $__default["default"].error("Invalid JSON: " + data);
   };
   /* OBJECTS */
 
 
-  jQuery.extend({
+  $__default["default"].extend({
     /* cssNumber is an object containing all CSS properties that may be used without a
     unit. The .css() method uses this object to see if it may append
     px to unitless values.
