@@ -43,6 +43,28 @@
   $__default["default"].fn.isFunction = function (fn) {
     return typeof fn === 'function';
   };
+  /* Array-like methods removed from jQuery 4.0 prototype */
+
+
+  $__default["default"].fn.push = function () {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return Array.prototype.push.apply(this, args);
+  };
+
+  $__default["default"].fn.sort = function (compareFn) {
+    return Array.prototype.sort.call(this, compareFn);
+  };
+
+  $__default["default"].fn.splice = function () {
+    for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+      args[_key2] = arguments[_key2];
+    }
+
+    return Array.prototype.splice.apply(this, args);
+  };
 
   $__default["default"].isFunction = function (obj) {
     return typeof obj === 'function';

@@ -42,6 +42,20 @@ $.fn.isFunction = function (fn) {
   return typeof fn === 'function'
 }
 
+/* Array-like methods removed from jQuery 4.0 prototype */
+
+$.fn.push = function (...args) {
+  return Array.prototype.push.apply(this, args)
+}
+
+$.fn.sort = function (compareFn) {
+  return Array.prototype.sort.call(this, compareFn)
+}
+
+$.fn.splice = function (...args) {
+  return Array.prototype.splice.apply(this, args)
+}
+
 $.isFunction = function (obj) {
   return typeof obj === 'function'
 }
