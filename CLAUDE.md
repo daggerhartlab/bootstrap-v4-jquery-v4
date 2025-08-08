@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Bootstrap v4.6.2 fork that maintains jQuery v4 compatibility by implementing deprecated jQuery functions that were removed in jQuery 3+. The project includes a custom `jquery-deprecated-functions.js` file that polyfills removed jQuery methods like `$.isFunction()`, `$.trim()`, `$.parseJSON()`, and others.
+This is a Bootstrap v4.7.0 fork that maintains jQuery v4 compatibility by implementing deprecated jQuery functions that were removed in jQuery 3+. The project includes a custom `jquery-deprecated-functions.js` file that polyfills removed jQuery methods like `$.isFunction()`, `$.trim()`, `$.parseJSON()`, and others.
 
 ## Development Commands
 
